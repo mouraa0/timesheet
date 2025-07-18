@@ -9,7 +9,7 @@ class AppScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         width: double.infinity,
         height: double.infinity,
         decoration: const BoxDecoration(
@@ -19,7 +19,7 @@ class AppScaffold extends StatelessWidget {
             colors: [Color(0xFF0C1D4D), Color(0xFF214ECC)],
           ),
         ),
-        child: body,
+        child: SafeArea(bottom: false, child: body),
       ),
     );
   }
