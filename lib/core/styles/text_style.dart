@@ -16,14 +16,9 @@ class AppTextStyle extends TextStyle {
     super.decorationThickness,
   }) : super(fontFamily: 'Inter');
 
-  static const headlineLarge = AppTextStyle(
-    color: AppColors.onSurface,
-    fontSize: 32,
-    fontWeight: FontWeight.w700,
-    height: 40 / 32,
+  static final headlineSmallOnSurface = _headlineSmall.withColor(
+    AppColors.onSurface,
   );
-
-  static final labelLargeOnSurface = _labelLarge.withColor(AppColors.onSurface);
 
   static final labelLargeOnPrimaryContainer = _labelLarge.withColor(
     AppColors.onPrimaryContainer,
@@ -33,7 +28,22 @@ class AppTextStyle extends TextStyle {
     AppColors.onSecundaryContainer,
   );
 
+  static final labelLargeOnSurface = _labelLarge.withColor(AppColors.onSurface);
+
   static final bodyLargeOnSurface = _bodyLarge.withColor(AppColors.onSurface);
+
+  static const headlineLarge = AppTextStyle(
+    color: AppColors.onSurface,
+    fontSize: 32,
+    fontWeight: FontWeight.w700,
+    height: 40 / 32,
+  );
+
+  static const _headlineSmall = AppTextStyle(
+    fontSize: 24,
+    height: 32 / 24,
+    fontWeight: FontWeight.w700,
+  );
 
   static const titleMedium = AppTextStyle(
     color: AppColors.onSurface,
