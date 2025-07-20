@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:timesheet/core/styles/icons.dart';
 import 'package:timesheet/core/styles/text_style.dart';
-import 'package:timesheet/core/widgets/icon_button.dart';
+import 'package:timesheet/core/widgets/buttons/icon_button.dart';
 import 'package:timesheet/core/widgets/scaffold.dart';
 import 'package:timesheet/core/widgets/text/text.dart';
 import 'package:timesheet/modules/timer/presentation/pages/list/components/timer_list_container.dart';
