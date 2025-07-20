@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:timesheet/core/styles/color.dart';
 import 'package:timesheet/core/styles/icons.dart';
+import 'package:timesheet/core/styles/inputs.dart';
 import 'package:timesheet/core/styles/text_style.dart';
 import 'package:timesheet/core/widgets/inputs/dropdown/cubit/dropdown_cubit.dart';
 import 'package:timesheet/core/widgets/text/text.dart';
@@ -73,7 +74,7 @@ class _AppDropdownState<T> extends State<AppDropdown<T>> {
     final List<double> itemsHeights = [];
     for (int i = 0; i < (widget.items.length * 2) - 1; i++) {
       if (i.isEven) {
-        itemsHeights.add(56);
+        itemsHeights.add(AppInputsStyle.height);
       }
       if (i.isOdd) {
         itemsHeights.add(1);
@@ -124,18 +125,27 @@ class _AppDropdownState<T> extends State<AppDropdown<T>> {
               padding: const EdgeInsets.symmetric(horizontal: 0),
             ),
             buttonStyleData: ButtonStyleData(
-              height: 56,
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              height: AppInputsStyle.height,
+              padding: EdgeInsets.symmetric(
+                horizontal: AppInputsStyle.contentPadding,
+              ),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: AppColors.outline, width: 2),
+                borderRadius: BorderRadius.circular(
+                  AppInputsStyle.borderRadius,
+                ),
+                border: Border.all(
+                  color: AppInputsStyle.borderColor,
+                  width: AppInputsStyle.borderWidth,
+                ),
               ),
             ),
             dropdownStyleData: DropdownStyleData(
               offset: const Offset(0, -4),
               padding: const EdgeInsets.all(0),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(
+                  AppInputsStyle.borderRadius,
+                ),
                 color: AppColors.surfaceAtOneDark,
                 boxShadow: List.empty(),
               ),

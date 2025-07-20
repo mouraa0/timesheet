@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:timesheet/core/styles/color.dart';
-import 'package:timesheet/core/styles/text_style.dart';
+import 'package:timesheet/core/styles/inputs.dart';
 import 'package:timesheet/core/widgets/text/text.dart';
 
 class AppTextField extends StatelessWidget {
@@ -20,12 +19,12 @@ class AppTextField extends StatelessWidget {
     return TextFormField(
       minLines: 1,
       maxLines: isMultiline ? null : 1,
-      cursorColor: AppColors.outline,
-      style: AppTextStyle.bodyLargeOnSurface,
+      cursorColor: AppInputsStyle.cursorColor,
+      style: AppInputsStyle.textStyle,
       controller: controller,
       decoration: InputDecoration(
-        hint: AppText(hint, textStyle: AppTextStyle.bodyLargeOnSurface),
-        contentPadding: const EdgeInsets.all(16),
+        hint: AppText(hint, textStyle: AppInputsStyle.textStyle),
+        contentPadding: EdgeInsets.all(AppInputsStyle.contentPadding),
         border: _border(),
         focusedBorder: _border(),
         enabledBorder: _border(),
@@ -35,8 +34,11 @@ class AppTextField extends StatelessWidget {
 
   OutlineInputBorder _border() {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(8),
-      borderSide: const BorderSide(color: AppColors.outline, width: 2),
+      borderRadius: BorderRadius.circular(AppInputsStyle.borderRadius),
+      borderSide: BorderSide(
+        color: AppInputsStyle.borderColor,
+        width: AppInputsStyle.borderWidth,
+      ),
     );
   }
 }
