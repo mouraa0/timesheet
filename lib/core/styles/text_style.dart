@@ -29,6 +29,10 @@ class AppTextStyle extends TextStyle {
     AppColors.onPrimaryContainer,
   );
 
+  static final labelLargeOnSecundaryContainer = _labelLarge.withColor(
+    AppColors.onSecundaryContainer,
+  );
+
   static final bodyLargeOnSurface = _bodyLarge.withColor(AppColors.onSurface);
 
   static const titleMedium = AppTextStyle(
