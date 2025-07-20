@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:timesheet/modules/timer/presentation/pages/timer_list_page.dart';
+import 'package:timesheet/modules/timer/presentation/pages/create/timer_create_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const TimerListPage(),
+      home: const TimerCreatePage(),
     );
   }
 }

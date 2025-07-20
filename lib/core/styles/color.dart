@@ -9,4 +9,7 @@ class AppColors {
 
   static const Color onSurface = Color(0xFFFFFFFF);
   static const Color surfaceAtOne = Color(0x14FFFFFF);
+  static const Color surfaceAtOneDark = Color(0x1FFFFFFF);
+
+  static const Color outline = Color(0x29FFFFFF);
 }

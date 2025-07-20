@@ -29,6 +29,8 @@ class AppTextStyle extends TextStyle {
     AppColors.onPrimaryContainer,
   );
 
+  static final bodyLargeOnSurface = _bodyLarge.withColor(AppColors.onSurface);
+
   static const titleMedium = AppTextStyle(
     color: AppColors.onSurface,
     fontSize: 16,
@@ -40,6 +42,12 @@ class AppTextStyle extends TextStyle {
     color: AppColors.onSurface,
     fontSize: 14,
     height: 20 / 14,
+    fontWeight: FontWeight.w400,
+  );
+
+  static const _bodyLarge = AppTextStyle(
+    fontSize: 16,
+    height: 24 / 16,
     fontWeight: FontWeight.w400,
   );
 
