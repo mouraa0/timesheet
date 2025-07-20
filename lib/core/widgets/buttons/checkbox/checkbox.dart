@@ -69,7 +69,7 @@ class _AppCheckboxState extends State<AppCheckbox> {
             );
           },
         ),
-        AppText('Make Favorite', textStyle: AppTextStyle.bodyLargeOnSurface),
+        AppText(widget.label, textStyle: AppTextStyle.bodyLargeOnSurface),
       ],
     );
   }
