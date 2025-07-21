@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:timesheet/core/styles/color.dart';
 import 'package:timesheet/core/styles/icons.dart';
-import 'package:timesheet/core/styles/text_style.dart';
-import 'package:timesheet/core/widgets/text/text.dart';
 
 class TimerListContainer extends StatelessWidget {
   const TimerListContainer({super.key});
@@ -40,9 +38,11 @@ class TimerListContainer extends StatelessWidget {
               child: Row(
                 spacing: 12,
                 children: [
-                  AppText(
+                  Text(
                     '00:30',
-                    textStyle: AppTextStyle.labelLargeOnPrimaryContainer,
+                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                      color: Theme.of(context).colorScheme.onPrimaryContainer,
+                    ),
                   ),
                   SvgPicture.asset(AppIcons.pause),
                 ],
@@ -89,15 +89,17 @@ class _TextInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final color = Theme.of(context).colorScheme.onSurface;
+
     return Row(
       spacing: 8,
       children: [
         SvgPicture.asset(iconPath),
-        AppText(
+        Text(
           text,
-          textStyle: isTitle
-              ? AppTextStyle.titleMedium
-              : AppTextStyle.bodyMedium,
+          style: isTitle
+              ? Theme.of(context).textTheme.titleMedium!.copyWith(color: color)
+              : Theme.of(context).textTheme.bodyMedium!.copyWith(color: color),
         ),
       ],
     );

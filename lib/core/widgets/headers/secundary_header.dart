@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:timesheet/core/styles/icons.dart';
-import 'package:timesheet/core/styles/text_style.dart';
-import 'package:timesheet/core/widgets/text/text.dart';
 
 class AppSecondaryHeader extends StatelessWidget {
   final String title;
@@ -29,7 +27,7 @@ class AppSecondaryHeader extends StatelessWidget {
               child: SvgPicture.asset(AppIcons.arrowLeft),
             ),
           ),
-          AppText(title, textStyle: AppTextStyle.headlineSmallOnSurface),
+          Text(title, style: Theme.of(context).textTheme.headlineSmall),
           const SizedBox(width: 10),
         ],
       ),

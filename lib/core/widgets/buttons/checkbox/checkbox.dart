@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:timesheet/core/styles/color.dart';
-import 'package:timesheet/core/styles/text_style.dart';
 import 'package:timesheet/core/widgets/buttons/checkbox/bloc/checkbox_cubit.dart';
-import 'package:timesheet/core/widgets/text/text.dart';
 
 class AppCheckbox extends StatefulWidget {
   final String label;
@@ -48,10 +45,10 @@ class _AppCheckboxState extends State<AppCheckbox> {
               value: state,
               materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
               visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
-              checkColor: AppColors.onPrimaryContainer,
+              checkColor: Theme.of(context).colorScheme.onPrimaryContainer,
               fillColor: WidgetStateColor.resolveWith((states) {
                 if (states.contains(WidgetState.selected)) {
-                  return AppColors.onSurface;
+                  return Theme.of(context).colorScheme.onSurface;
                 }
 
                 return Colors.transparent;
@@ -60,7 +57,10 @@ class _AppCheckboxState extends State<AppCheckbox> {
                 borderRadius: BorderRadius.circular(4),
               ),
               side: WidgetStateBorderSide.resolveWith((states) {
-                return const BorderSide(color: AppColors.onSurface, width: 2);
+                return BorderSide(
+                  color: Theme.of(context).colorScheme.onSurface,
+                  width: 2,
+                );
               }),
               onChanged: (v) {
                 _cubit.toggle();
@@ -69,7 +69,12 @@ class _AppCheckboxState extends State<AppCheckbox> {
             );
           },
         ),
-        AppText(widget.label, textStyle: AppTextStyle.bodyLargeOnSurface),
+        Text(
+          widget.label,
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+            color: Theme.of(context).colorScheme.onSurface,
+          ),
+        ),
       ],
     );
   }

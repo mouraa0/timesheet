@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:timesheet/core/styles/color.dart';
-import 'package:timesheet/core/styles/text_style.dart';
-import 'package:timesheet/core/widgets/text/text.dart';
 
 class AppDefaultButton extends StatelessWidget {
   final String title;
@@ -21,14 +19,6 @@ class AppDefaultButton extends StatelessWidget {
       width: double.infinity,
       height: 48,
       child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.all(14),
-          elevation: 0,
-          backgroundColor: AppColors.secundaryContainer,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-        ),
         onPressed: onPressed,
         child: isLoading
             ? const SizedBox(
@@ -38,9 +28,11 @@ class AppDefaultButton extends StatelessWidget {
                   color: AppColors.onSecundaryContainer,
                 ),
               )
-            : AppText(
+            : Text(
                 title,
-                textStyle: AppTextStyle.labelLargeOnSecundaryContainer,
+                style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                  color: AppColors.onSecundaryContainer,
+                ),
               ),
       ),
     );

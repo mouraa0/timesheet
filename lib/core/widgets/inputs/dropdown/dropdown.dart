@@ -5,9 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:timesheet/core/styles/color.dart';
 import 'package:timesheet/core/styles/icons.dart';
 import 'package:timesheet/core/styles/inputs.dart';
-import 'package:timesheet/core/styles/text_style.dart';
 import 'package:timesheet/core/widgets/inputs/dropdown/cubit/dropdown_cubit.dart';
-import 'package:timesheet/core/widgets/text/text.dart';
 
 class AppDropdown<T> extends StatefulWidget {
   final List<T> items;
@@ -53,9 +51,9 @@ class _AppDropdownState<T> extends State<AppDropdown<T>> {
           value: item,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: AppText(
+            child: Text(
               widget.getLabel(item),
-              textStyle: AppTextStyle.bodyLargeOnSurface,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
           ),
         ),
@@ -100,9 +98,9 @@ class _AppDropdownState<T> extends State<AppDropdown<T>> {
               widget.onChanged?.call(value);
             },
             value: state,
-            hint: AppText(
+            hint: Text(
               widget.hint,
-              textStyle: AppTextStyle.bodyLargeOnSurface,
+              style: Theme.of(context).inputDecorationTheme.hintStyle,
             ),
             items: items,
             iconStyleData: IconStyleData(
@@ -114,9 +112,9 @@ class _AppDropdownState<T> extends State<AppDropdown<T>> {
                   return const SizedBox.shrink();
                 }
 
-                return AppText(
+                return Text(
                   widget.getLabel(menuItem.value as T),
-                  textStyle: AppTextStyle.bodyLargeOnSurface,
+                  style: Theme.of(context).inputDecorationTheme.hintStyle,
                 );
               }).toList();
             },
@@ -134,8 +132,12 @@ class _AppDropdownState<T> extends State<AppDropdown<T>> {
                   AppInputsStyle.borderRadius,
                 ),
                 border: Border.all(
-                  color: AppInputsStyle.borderColor,
-                  width: AppInputsStyle.borderWidth,
+                  color: Theme.of(
+                    context,
+                  ).inputDecorationTheme.border!.borderSide.color,
+                  width: Theme.of(
+                    context,
+                  ).inputDecorationTheme.border!.borderSide.width,
                 ),
               ),
             ),
@@ -146,7 +148,7 @@ class _AppDropdownState<T> extends State<AppDropdown<T>> {
                 borderRadius: BorderRadius.circular(
                   AppInputsStyle.borderRadius,
                 ),
-                color: AppColors.surfaceAtOneDark,
+                color: Theme.of(context).colorScheme.surface,
                 boxShadow: List.empty(),
               ),
             ),

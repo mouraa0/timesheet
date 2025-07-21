@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:timesheet/core/styles/icons.dart';
-import 'package:timesheet/core/styles/text_style.dart';
 import 'package:timesheet/core/widgets/buttons/icon_button.dart';
 import 'package:timesheet/core/widgets/scaffold.dart';
-import 'package:timesheet/core/widgets/text/text.dart';
 import 'package:timesheet/modules/timer/presentation/pages/list/components/timer_list_container.dart';
 
 class TimerListPage extends StatelessWidget {
@@ -26,15 +24,15 @@ class _Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(top: 8),
+    return Padding(
+      padding: const EdgeInsets.only(top: 8),
       child: Row(
         spacing: 8,
         children: [
-          AppText('Timesheets', textStyle: AppTextStyle.headlineLarge),
-          Spacer(),
-          AppIconButton(iconPath: AppIcons.order),
-          AppIconButton(iconPath: AppIcons.plus),
+          Text('Timesheets', style: Theme.of(context).textTheme.headlineLarge),
+          const Spacer(),
+          const AppIconButton(iconPath: AppIcons.order),
+          const AppIconButton(iconPath: AppIcons.plus),
         ],
       ),
     );
@@ -46,9 +44,11 @@ class _Label extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppText(
+    return Text(
       'You have 16 Timers',
-      textStyle: AppTextStyle.labelLargeOnSurface,
+      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+        color: Theme.of(context).colorScheme.onSurface,
+      ),
     );
   }
 }
